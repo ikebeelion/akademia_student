@@ -203,7 +203,9 @@ button{
 .submit-btn{
 	position:  relative;
 }
-
+.submit-btn:hover{
+	background: rgb(41, 59, 216);
+}
 .submit-btn::after{
 	content: '\27a4';
 	color: #333;
