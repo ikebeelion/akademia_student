@@ -67,8 +67,9 @@ export default {
 		},
 
         login(){					
-			User.login(this.logindata).then(() =>{
-				// getUser
+			User.login(this.logindata).then((result) =>{
+				// getUser				
+				localStorage.setItem("token", result.data['access_token'])					
 				User.auth().then((result)=>{
 					if(result.data.roleid == 4){
 						localStorage.setItem("auth", "true")
