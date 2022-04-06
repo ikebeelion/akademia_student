@@ -70,10 +70,10 @@ export default {
 			User.login(this.logindata).then((result) =>{
 				// getUser				
 				localStorage.setItem("token", result.data['access_token'])					
+				window.location.href = 'viewtable'
 				User.auth().then((result)=>{
 					if(result.data.roleid == 4){
 						localStorage.setItem("auth", "true")
-						window.location.href = 'viewtable'
 					}else{
 						this.errors = "Login as Student"
 					}
