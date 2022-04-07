@@ -17,7 +17,7 @@
                      <select v-model="getResult.academicPeriodid"  @change="checkInput">
                         <option value="null">Select Academic Period</option>
                          <option v-for="period in academicPeriods" :key="period.id" :value="period.id">
-                            {{ period.session.session }} - {{ period.term.term }}
+                            {{ period.session.session }} - {{ period.term }}
                          </option>
                     </select>
                 </div> 
@@ -30,12 +30,12 @@
             <div class="form-group">
                 <center>
                     <div class="img-container" style="margin-bottom:10px">
-                        <img :src="'http://localhost:8000/images/school/'+this.schoolProfile.schoollogo" alt="school photo" height="80px" width="100px">
+                        <img :src="'https://raw.githubusercontent.com/ikebeelion/akademia_api/main/public/images/school/'+this.schoolProfile.schoollogo" alt="school photo" height="80px" width="100px">
                     </div>
                 </center>
                 <center>
                     <div class="img-watermark" style="margin-bottom:10px">
-                        <img :src="'http://localhost:8000/images/school/'+this.schoolProfile.schoollogo" alt="school photo" height="80px" width="100px">
+                        <img :src="'https://raw.githubusercontent.com/ikebeelion/akademia_api/main/public/images/school/'+this.schoolProfile.schoollogo" alt="school photo" height="80px" width="100px">
                     </div>
                 </center>
             </div>
@@ -59,11 +59,11 @@
                                  {{resultProfile.genderid}}
                             </td>
                              <td><b>ADMISSION NO:</b>
-                                 WVHS/{{ resultProfile.studentuseraccountid}}0
+                                 {{ resultProfile.studentuseraccountid}}3171
                              </td>
                              <td rowspan=3>
                              <div class="img-container" style="margin-bottom:10px">
-                                  <img :src="'http://localhost:8000/images/students/'+this.resultProfile.photo" alt="student photo" height="80px" width="90px">
+                                  <img :src="'https://raw.githubusercontent.com/ikebeelion/akademia_api/main/public/images/'+this.resultProfile.photo" alt="student photo" height="80px" width="90px">
                              </div>
                               </td>
                         </tr>
@@ -85,11 +85,16 @@
                             <td class="mr-1"><b>Age:</b>
                                  {{ age(resultProfile.dob) }} years
                             </td>
+                            <td class="mr-1">
+                                 
+                            </td>
 
+                        </tr> 
+                        <tr>
                              <td class="mr-1"><b>Next Term Begins:</b>
                                 {{ resultProfile.next_resumption }}
                             </td>
-                        </tr>                        
+                        </tr>                       
                     </tbody>
                 </table>
                    <!-- STUDENT RESULT -->
@@ -652,7 +657,7 @@ export default {
 
         print(){            
             window.print()
-            this.$router.push('/result')
+            this.$router.push('/myresult')
         },
 
         getCurrentDate(){

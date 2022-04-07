@@ -8,7 +8,7 @@
             <select v-model="getTable.period" class="form-control">
                 <option value="null">select</option>
                 <option v-for="period in academicPeriods" :key="period.id" :value="period.id">
-                     {{ period.session.session }} - {{ period.term.term }}
+                     {{ period.session.session }} - {{ period.term }}
                 </option>
             </select>
         </div><br/>
