@@ -27,18 +27,78 @@
         </div>
     </center>
     </section>
-    <section>
-        <div class="row" v-if="this.timetable != null">
-                                        <div class="col-12 mt-3">
-                                        <h1 v-if="getTable.type == 'class_timetable' ">
-                                            Class Time Table For {{ allrooms.classgroupname  }} {{ allrooms.classroom}}
-                                        </h1>
-                                        <h1 v-else>Exam Time Table</h1>
-                                        <div class="row">
-                                            <div class="col-4">
-                                                <center><h5>Monday</h5></center>
-                                                <div >
-                                                    <table>
+    <center>
+        <section>
+            <div class="row" v-if="this.timetable != null">
+                                            <div class="col-12 mt-3">
+                                            <h1 v-if="getTable.type == 'class_timetable' ">
+                                                Class Time Table For {{ allrooms.classgroupname  }} {{ allrooms.classroom}}
+                                            </h1>
+                                            <h1 v-else>Exam Time Table</h1>
+                                            <div class="row">
+                                                <div class="col-4">
+                                                    <center><h1>Monday</h1></center>
+                                                    <div >
+                                                        <table>
+                                                            <thead>
+                                                                <tr>
+                                                                    <th>Subject</th>
+                                                                    <th>Time</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr v-for="table in timetable" :key='table.id'>
+                                                                    <td v-if="table.day == 'monday'">{{table.subjecttitle}}</td>
+                                                                    <td v-if="table.day == 'monday'">{{table.from}} - {{table.to}}</td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                                <div class="col-4">
+                                                    <center><h1>Tuesday</h1></center>
+                                                    <div >
+                                                        <table>
+                                                        <thead>
+                                                            <tr>
+                                                                <th>Subject</th>
+                                                                <th>Time</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <thead>
+                                                            <tr v-for="table in timetable" :key='table.id'>
+                                                                <td v-if="table.day == 'tuesday'">{{table.subjecttitle}}</td>
+                                                                <td v-if="table.day == 'tuesday'">{{table.from}} - {{table.to}}</td>
+                                                            </tr>
+                                                        </thead>
+                                                        </table>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-4">
+                                                    <center><h1>Wednesday</h1></center>
+                                                    <div >
+                                                        <table>
+                                                            <thead>
+                                                                <tr>
+                                                                    <th>Subject</th>
+                                                                    <th>Time</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr v-for="table in timetable" :key='table.id'>
+                                                                    <td v-if="table.day == 'wednesday'">{{table.subjecttitle}}</td>
+                                                                    <td v-if="table.day == 'wednesday'">{{table.from}} - {{table.to}}</td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-4">                                                
+                                                    <center><h1>Thursday</h1></center>
+                                                    <div>                                                
+                                                        <table>
                                                         <thead>
                                                             <tr>
                                                                 <th>Subject</th>
@@ -47,137 +107,79 @@
                                                         </thead>
                                                         <tbody>
                                                             <tr v-for="table in timetable" :key='table.id'>
-                                                                <td v-if="table.day == 'monday'">{{table.subjecttitle}}</td>
-                                                                <td v-if="table.day == 'monday'">{{table.from}} - {{table.to}}</td>
+                                                                <td v-if="table.day == 'thursday'">{{table.subjecttitle}}</td>
+                                                                <td v-if="table.day == 'thursday'">{{table.from}} - {{table.to}}</td>
                                                             </tr>
                                                         </tbody>
-                                                    </table>
+                                                        </table>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="col-4">
-                                                <center><h5>Tuesday</h5></center>
-                                                <div >
-                                                    <table>
-                                                    <thead>
-                                                        <tr>
-                                                            <th>Subject</th>
-                                                            <th>Time</th>
-                                                        </tr>
-                                                    </thead>
-                                                    <thead>
-                                                        <tr v-for="table in timetable" :key='table.id'>
-                                                            <td v-if="table.day == 'tuesday'">{{table.subjecttitle}}</td>
-                                                            <td v-if="table.day == 'tuesday'">{{table.from}} - {{table.to}}</td>
-                                                        </tr>
-                                                    </thead>
-                                                    </table>
-                                                </div>
-                                            </div>
 
-                                            <div class="col-4">
-                                                <center><h5>Wednesday</h5></center>
-                                                <div >
-                                                    <table>
-                                                        <thead>
-                                                            <tr>
-                                                                <th>Subject</th>
-                                                                <th>Time</th>
-                                                            </tr>
-                                                        </thead>
-                                                        <tbody>
-                                                            <tr v-for="table in timetable" :key='table.id'>
-                                                                <td v-if="table.day == 'wednesday'">{{table.subjecttitle}}</td>
-                                                                <td v-if="table.day == 'wednesday'">{{table.from}} - {{table.to}}</td>
-                                                            </tr>
-                                                        </tbody>
-                                                    </table>
+                                                <div class="col-4">
+                                                    <center><h1>Friday</h1></center>
+                                                    <div >
+                                                        <table>
+                                                            <thead>
+                                                                <tr>
+                                                                    <th>Subject</th>
+                                                                    <th>Time</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr v-for="table in timetable" :key='table.id'>
+                                                                    <td v-if="table.day == 'friday'">{{table.subjecttitle}}</td>
+                                                                    <td v-if="table.day == 'friday'">{{table.from}} - {{table.to}}</td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-4">
+                                                    <center><h1>Saturday</h1></center>
+                                                    <div >
+                                                        <table>
+                                                            <thead>
+                                                                <tr>
+                                                                    <th>Subject</th>
+                                                                    <th>Time</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr v-for="table in timetable" :key='table.id'>
+                                                                    <td v-if="table.day == 'saturday'">{{table.subjecttitle}}</td>
+                                                                    <td v-if="table.day == 'saturday'">{{table.from}} - {{table.to}}</td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-4">
+                                                    <center><h1>Sunday</h1></center>
+                                                    <div >
+                                                        <table>
+                                                            <thead>
+                                                                <tr>
+                                                                    <th>Subject</th>
+                                                                    <th>Time</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr v-for="table in timetable" :key='table.id'>
+                                                                    <td v-if="table.day == 'sunday'">{{table.subjecttitle}}</td>
+                                                                    <td v-if="table.day == 'sunday'">{{table.from}} - {{table.to}}</td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
                                                 </div>
                                             </div>
-
-                                            <div class="col-4">                                                
-                                                <center><h5>Thursday</h5></center>
-                                                <div>                                                
-                                                    <table>
-                                                    <thead>
-                                                        <tr>
-                                                            <th>Subject</th>
-                                                            <th>Time</th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        <tr v-for="table in timetable" :key='table.id'>
-                                                            <td v-if="table.day == 'thursday'">{{table.subjecttitle}}</td>
-                                                            <td v-if="table.day == 'thursday'">{{table.from}} - {{table.to}}</td>
-                                                        </tr>
-                                                    </tbody>
-                                                    </table>
-                                                </div>
-                                            </div>
-
-                                            <div class="col-4">
-                                                <center><h5>Friday</h5></center>
-                                                <div >
-                                                    <table>
-                                                        <thead>
-                                                            <tr>
-                                                                <th>Subject</th>
-                                                                <th>Time</th>
-                                                            </tr>
-                                                        </thead>
-                                                        <tbody>
-                                                            <tr v-for="table in timetable" :key='table.id'>
-                                                                <td v-if="table.day == 'friday'">{{table.subjecttitle}}</td>
-                                                                <td v-if="table.day == 'friday'">{{table.from}} - {{table.to}}</td>
-                                                            </tr>
-                                                        </tbody>
-                                                    </table>
-                                                </div>
-                                            </div>
-
-                                            <div class="col-4">
-                                                <center><h5>Saturday</h5></center>
-                                                <div >
-                                                    <table>
-                                                        <thead>
-                                                            <tr>
-                                                                <th>Subject</th>
-                                                                <th>Time</th>
-                                                            </tr>
-                                                        </thead>
-                                                        <tbody>
-                                                            <tr v-for="table in timetable" :key='table.id'>
-                                                                <td v-if="table.day == 'saturday'">{{table.subjecttitle}}</td>
-                                                                <td v-if="table.day == 'saturday'">{{table.from}} - {{table.to}}</td>
-                                                            </tr>
-                                                        </tbody>
-                                                    </table>
-                                                </div>
-                                            </div>
-
-                                            <div class="col-4">
-                                                <center><h5>Sunday</h5></center>
-                                                <div >
-                                                    <table>
-                                                        <thead>
-                                                            <tr>
-                                                                <th>Subject</th>
-                                                                <th>Time</th>
-                                                            </tr>
-                                                        </thead>
-                                                        <tbody>
-                                                            <tr v-for="table in timetable" :key='table.id'>
-                                                                <td v-if="table.day == 'sunday'">{{table.subjecttitle}}</td>
-                                                                <td v-if="table.day == 'sunday'">{{table.from}} - {{table.to}}</td>
-                                                            </tr>
-                                                        </tbody>
-                                                    </table>
-                                                </div>
                                             </div>
                                         </div>
-                                        </div>
-                                    </div>
-                            
-    </section>
+                                
+        </section><br><br>
+    </center>
     </div>
 </template>
 
