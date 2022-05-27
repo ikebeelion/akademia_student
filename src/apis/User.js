@@ -10,5 +10,10 @@ export default{
 
     auth(){
         return Api.get("/user")
+    },
+
+    resetpassword(email){
+        return Api.post('/reset-password', email)
     }
 }
+ 
